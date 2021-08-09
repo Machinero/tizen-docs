@@ -28,11 +28,11 @@ You can use the following TizenFX features in your .NET applications:
 
   The application management feature introduces how to handle applications and packages. You can see application resources and communication methods between applications.
 
-- [Natural User Interface](nui/overview.md)
+- [Natural User Interface](user-interface/nui/overview.md)
 
   The Natural User Interface (NUI) features provide various aspects of creating a visual outlook for the user application to ensure the best user experience. NUI is a rich GUI library for creating a 2-dimensional or a 3-dimensional applications. These applications run on a range of Tizen devices, such as TVs and wearables. NUI is built on a multi-threaded architecture by enabling realistic smooth animations.
 
-- [Wearable Circular UI](wcircularui/overview.md)
+- [Wearable Circular UI](user-interface/wcircularui/overview.md)
 
   The Wearable Circular UI feature introduces a set of helpful extensions of the <a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/" target="_blank">Xamarin.Forms</a> framework.
   Its aim is to develop an open source software and to motivate software developers to create Tizen Wearable Xamarin.Forms application more easily and efficiently.
