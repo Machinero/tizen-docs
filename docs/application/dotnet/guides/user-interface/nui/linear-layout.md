@@ -1,3 +1,11 @@
+<style>
+    .tabcontent img {
+        border: 1px solid #555;
+        max-width: 100% !important;
+        max-height: 100%;
+    }
+</style>
+
 # Linear Layout
 
 `LinearLayout` is a linear box layout in which the children of a layout are arranged vertically or horizontally by using [`LinearOrientation`](#orientation) property.
@@ -22,9 +30,24 @@ Here are the properties of `LinearLayout`:
 
 `LinearOrientation` indicates the direction of a child layout such as horizontal or vertical. The default value is horizontal.
 
-| Horizontal | Vetical |
+| Horizontal | Vertical |
 | -----------------------| --------------- |
 | ![Horizontal](./media/horizontalLayout.png) | ![Vertical](./media/verticalLayout.png)  |
+
+<div id="TabSection1">
+    <div class="sampletab " id="ProjectCreateTab">
+        <button id="LinearLayout-Orientation-CSharp" class="tablinks " onclick="openTabSection(event, 'LinearLayout-Orientation-CSharp', 'TabSection1') ">C#</button>
+        <button id="LinearLayout-Orientation-Xaml" class="tablinks " onclick="openTabSection(event, 'LinearLayout-Orientation-Xaml', 'TabSection1') ">Xaml</button>
+    </div>
+    <div id="LinearLayout-Orientation-CSharp" class="tabcontent">
+        <table>
+            <tbody>
+                <tr>
+<span style="display:block"><div class="tabcontent">
+        <table>
+            <tbody>
+                <tr>
+<span style="display:block">
 
 ```csharp
 View layoutView = new View();
@@ -32,6 +55,32 @@ var linearLayout = new LinearLayout();
 linearLayout.LinearOrientation = LinearLayout.Orientation.Horizontal;
 layoutView.Layout = layout;
 ```
+
+</span>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="LinearLayout-Orientation-Xaml" class="tabcontent">
+        <table>
+            <tbody>
+                <tr>
+<span style="display:block">
+
+```xaml
+<View>
+    <View.Layout>
+        <LinearLayout LinearOrientation="Horizontal"/>
+    </View.Layout>
+</View>
+```
+
+</span>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <a name="alignment"></a>
 ## Alignment
@@ -60,6 +109,32 @@ linearLayout.LinearAlignment = LinearLayout.Alignment.Center;
 layoutView.Layout = layout;
 ```
 
+</span>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="LinearLayout-CellPadding-Xaml" class="tabcontent">
+        <table>
+            <tbody>
+                <tr>
+<span style="display:block">
+
+```xaml
+<View>
+    <View.Layout>
+        <LinearLayout LinearAlignment="Center"/>
+    </View.Layout>
+</View>
+```
+
+</span>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <a name="cellPadding"></a>
 ## CellPadding
 
@@ -78,6 +153,14 @@ linearLayout.CellPadding = new Size2D(10, 20);
 layoutView.Layout = layout;
 ```
 
+```xaml
+<View>
+    <View.Layout>
+        <LinearLayout CellPadding="10,20">
+    </View.Layout>
+</View>
+```
+
 <a name="weight"></a>
 ## Weight
 
@@ -88,6 +171,21 @@ Depending on each weight, children take up their parent's view space. Therefore,
 The following example shows how to set the layout weight to each child. The weight of `imageView1` is 0.75f and the weight of `imageView2` is 0.25f. According to the weight, children are arranged in the parent view space.
 
 ![Weight](./media/weight.png)
+
+<div id="TabSection1">
+    <div class="sampletab " id="ProjectCreateTab">
+        <button id="LinearLayout-Weight-CSharp" class="tablinks " onclick="openTabSection(event, 'LinearLayout-Weight-CSharp', 'TabSection1') ">C#</button>
+        <button id="LinearLayout-Orientation-Xaml" class="tablinks " onclick="openTabSection(event, 'LinearLayout-Orientation-Xaml', 'TabSection1') ">Xaml</button>
+    </div>
+    <div id="LinearLayout-Weight-CSharp" class="tabcontent">
+        <table>
+            <tbody>
+                <tr>
+<span style="display:block"><div class="tabcontent">
+        <table>
+            <tbody>
+                <tr>
+<span style="display:block">
 
 ```csharp
 View layoutView = new View();
@@ -104,8 +202,67 @@ layoutView.Add(imageView1);
 layoutView.Add(imageView2);
 ```
 
+</span>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="LinearLayout-Orientation-Xaml" class="tabcontent">
+        <table>
+            <tbody>
+                <tr>
+<span style="display:block">
+
+```xaml
+<View>
+    <View.Layout>
+        <LinearLayout />
+    </View.Layout>
+
+    <ImageView Weight="0.75"/>
+    <ImageView Weight="0.25"/>
+
+</View>
+```
+
+</span>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 ## Related Information
 
 - Dependencies
   -  Tizen 5.5 and Higher
+
+<script>
+    function openTabSection(evt, profileName, sectionId) {
+        var i, tabcontent, tablinks, section;
+        let selected = 0;
+
+        section = document.getElementById(sectionId);
+        tabcontent = section.getElementsByClassName("tabcontent");
+
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            if (tabcontent[i].id == profileName) {
+                selected = i;
+            }
+        }
+
+        tablinks = section.getElementsByClassName("tablinks");
+
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        tabcontent[selected].style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    document.getElementById("LinearLayout-Orientation-CSharp").click();
+    document.getElementById("LinearLayout-CellPadding-CSharp").click();
+    document.getElementById("LinearLayout-Weight-CSharp").click();
+
+</script>
